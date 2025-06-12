@@ -103,8 +103,9 @@ const EmailForm = () => {
     if (file) payload.append("attachment", file);
 
     setLoading(true);
+    const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/send`, {
+      const res = await fetch(`${API_BASE_URL}/api/mail/send`, {
         method: "POST",
         body: payload,
       });
